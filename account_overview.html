@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+    <title>Movie and Music Ranking</title>
+  </head>
+
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Sam's Music and Movie Rankings</div>
+      <ul class="nav__container">
+        <li class="nav__item">
+          <a class="nav__link btn--page__nav" href="#section--1"
+            >Movie Rankings</a
+          >
+        </li>
+        <li class="nav__item">
+          <a class="nav__link btn--page__nav" href="#section--2"
+            >Music Rankings</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__description">
+      <h1 class="desciption__items">Sam's Movie and Music Rankings</h1>
+    </div>
+  </header>
+  <div class="table__container">
+    <div class="entry__container">
+      <form class="form ">
+        <div class="form__row form__movie">
+          <label class="form__label">Movie or Music</label>
+          <select class="form__input form__input--type">
+            <option value="movie">Movie</option>
+            <option value="music">Music</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label class="form__label">Title</label>
+          <input class="form__input form__input--movie__title" placeholder="Movie Title" />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Artist</label>
+          <input class="form__input form__input--movie__title" placeholder="Artist" />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Director</label>
+          <input
+            class="form__input form__input--duration"
+            placeholder="Director"
+          />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Album</label>
+          <input class="form__input form__input--movie__title" placeholder="Album Title" />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Personal Ratings</label>
+          <select class="form__input form__input--type">
+            <option value="0">0.00</option>
+            <option value="0.50">0.50</option>
+            <option value="1.00">1.00</option>
+            <option value="1.50">1.50</option>
+            <option value="2.00">2.00</option>
+            <option value="2.50">2.50</option>
+            <option value="3.00">3.00</option>
+            <option value="3.50">3.50</option>
+            <option value="4.00">4.00</option>
+            <option value="4.50">4.50</option>
+            <option value="5.00">5.00</option>
+          </select>
+        </div>
+        
+        <button class="form__btn">OK</button>
+    </div>
+    <div class="list__container">
+      <div class="movie__container">
+        <table class="movie__table">
+          <tr class="table__header movie__header">
+            <th class="movie__title column__1">Title</td>
+            <th class="movie__director column__2">Director</td>
+            <th class="movie__your_ratings column__3">Personal Ratings</td>
+            <th class="movie__app_ratings column__4">App Ratings</td>
+          </tr>
+          <tr class="table__header movie__header">
+            <td class="movie__title column__1">The Godfather</td>
+            <td class="movie__director column__2">Francis Ford-Coppola</td>
+            <td class="movie__your_ratings column__3">5</td>
+            <td class="movie__app_ratings column__4">5</td>
+          </tr>
+          <tr class="table__header movie__header">
+            <td class="movie__title column__1">The Shawshank Redemption</td>
+            <td class="movie__director column__2">Frank Darabont</td>
+            <td class="movie__your_ratings column__3">5</td>
+            <td class="movie__app_ratings column__4">5</td>
+          </tr>
+        </table>
+      </div>
+      <div class="music__container">
+        <table class="music__table">
+          <tr class="table__header music__header">
+            <th class="music__artist column__1">Artist</td>
+            <th class="music__album column__2">Album</td>
+            <th class="music__your_ratings column__3">Personal Ratings</td>
+            <th class="music__app_ratings column__4">App Ratings</td>
+          </tr>
+        <tr class="table__header music__header">
+          <td class="music__artist column__1">Radiohead</td>
+          <td class="music__album column__2">Kid A</td>
+          <td class="music__your_ratings column__3">5</td>
+          <td class="music__app_ratings column__4">4.75</td>
+        </tr>
+        <tr class="table__header music__header">
+          <td class="music__artist column__1">The Beatles</td>
+          <td class="music__album column__2">Abbey Road</td>
+          <td class="music__your_ratings column__3">4</td<>
+          <td class="music__app_ratings column__4">4.5</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</html>

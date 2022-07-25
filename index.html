@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+    <title>Movie and Music Ranking</title>
+  </head>
+</html>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Sam's Music and Movie Rankings</div>
+      <ul class="nav__container">
+        <li class="nav__item">
+          <a class="nav__link" href="#section--1">Features</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="#section--2">Movie Rankings</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="#section--3">Music Rankings</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link btn--nav__link btn--show-modal" href="#"
+            >Open account</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="header__container">
+      <div class="header__description">
+        <h1 class="desciption__items">
+          Rate your <span class="highlight">Music</span> and
+          <span class="highlight">Movies</span> in one simple space
+        </h1>
+        <h3 class="description__items">
+          Compare what others think of your favorite music and movies
+        </h3>
+      </div>
+      <img src="images/basic-graph.jpg" />
+    </div>
+  </header>
+  <section class="section" id="section--1">
+    <div class="section__header">
+      <h2 class="section__title">Features</h2>
+      <h4 class="section__description">
+        What you need in music and movie cataloger
+      </h4>
+    </div>
+    <div class="features">
+      <img src="images/basic-ranking.jpg" class="features__img" />
+      <div class="features__feature">
+        <h5 class="features__title">Catalog music</h5>
+        <p class="features__description">
+          Catalog Music and Movies that you have watched.
+        </p>
+      </div>
+      <div class="features__feature">
+        <h5 class="features__title">Rank music</h5>
+        <p class="features__description">Give rankings to your music</p>
+      </div>
+      <img src="images/basic-ranking.jpg" class="features__img" />
+      <img src="images/basic-ranking.jpg" class="features__img" />
+      <div class="features__feature">
+        <h5 class="features__title">Rank movies</h5>
+        <p class="features__description">Give rankings to your music</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section--2">
+    <div class="section__header">
+      <h2 class="section__title">Movie Rankings</h2>
+    </div>
+  </section>
+  <section class="section" id="section--3">
+    <div class="section__header">
+      <h2 class="section__title">Music Rankings</h2>
+    </div>
+  </section>
+
+  <div class="modal">
+    <button class="btn--close-modal">&times;</button>
+    <h2 class="modal__header">Rank your music and movies today</h2>
+    <form class="modal__form">
+      <label>Username</label>
+      <input type="text"/>
+      <label>Password</label>
+      <input type="text"/>
+      <button class="btn">Sign-up</button>
+    <form>
+  </div>
+ 
+</body>

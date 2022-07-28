@@ -10,9 +10,14 @@ document
     e.preventDefault();
 
     // Matching strategy
-    if (e.target.classList.contains("nav__link")) {
+    if (e.target.classList.contains("btn--page__nav")) {
       const id = e.target.getAttribute("href");
       document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (e.target.classList.contains("btn--page__new")) {
+      const pageValue = e.target.getAttribute("href");
+      window.location.href = pageValue;
     }
   });
 

@@ -1,7 +1,14 @@
 "use strict";
 
+//////////////////////////////////
+// Elements
 const nav = document.querySelector(".nav");
 
+// Account overview Elements
+const entryForm = document.querySelector(".entry__container");
+
+const movieContainer = document.querySelector(".movie__container");
+const musicContainer = document.querySelector(".music__container");
 /////////////////////////////
 // Page navigation
 document
@@ -20,8 +27,6 @@ document
       window.location.href = pageValue;
     }
   });
-
-// account_overview section
 
 ///////////////////////////
 // REVEAL SECTIONS
@@ -68,3 +73,5 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(header);
+
+// account_overview section

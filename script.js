@@ -5,7 +5,17 @@
 const nav = document.querySelector(".nav");
 
 // Account overview Elements
-const entryForm = document.querySelector(".entry__container");
+const entryForm = document.querySelector(".entryForm");
+const inputType = document.querySelector(".form__input--type");
+const inputMovieTitle = document.querySelector(".form__input--movie_title");
+const inputMusicArtist = document.querySelector(".form__input--music_artist");
+const inputMovieDirector = document.querySelector(
+  ".form__input--movie_director"
+);
+const inputMusicAlbum = document.querySelector(".form__input--music_album");
+const inputPersonalRating = document.querySelector(
+  ".form__input--personal_ratings"
+);
 
 const movieContainer = document.querySelector(".movie__container");
 const musicContainer = document.querySelector(".music__container");
@@ -75,3 +85,66 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 // account_overview section
+
+// Classes
+
+class Rating {
+  date = new Date();
+
+  constructor(pRating) {
+    this.pRating = pRating;
+  }
+}
+
+class Movie extends Rating {
+  type = "movie";
+
+  constructor(title, director, pRating) {
+    super(pRating);
+    this.title = title;
+    this.director = director;
+  }
+}
+
+class Music extends Rating {
+  type = "music";
+
+  constructor(artist, album, pRating) {
+    super(pRating);
+    this.artist = artist;
+    this.album = album;
+  }
+}
+
+class App {
+  #ratings = [];
+
+  constructor() {
+    // Get data from local storage
+    // Not made yet
+    this._getLocalStorage();
+
+    // Get data from form
+    entryForm.addEventListener("submit", this._newEntry.bind(this));
+  }
+
+  _newEntry() {
+    e.preventDefault();
+
+    // Get data from form
+    const type = inputType.value;
+    const personalRating = +inputPersonalRating.value;
+    let entry;
+
+    // If entry movie, create movie object
+
+    if (type === "movie") {
+      const movieTitle = inputMovieTitle.value;
+      const movieDirector = inputMovieDirector.value;
+    }
+    if (type === "music") {
+      const musicArtist = inputMusicArtist.value;
+      const musicAlbum = inputMusicAlbum.value;
+    }
+  }
+}

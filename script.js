@@ -19,6 +19,16 @@ const inputPersonalRating = document.querySelector(
 
 const movieContainer = document.querySelector(".movie__container");
 const musicContainer = document.querySelector(".music__container");
+
+/////////////////////////////////////
+// Trying some counts
+const account1 = {
+  title: "The Godfather",
+  director: "Francis Ford-Coppola",
+  personalRating: 4.75,
+  appRating: 5.0,
+};
+
 /////////////////////////////
 // Page navigation
 document
@@ -122,13 +132,13 @@ class App {
   constructor() {
     // Get data from local storage
     // Not made yet
-    this._getLocalStorage();
-
+    // this._getLocalStorage();
+    6;
     // Get data from form
     entryForm.addEventListener("submit", this._newEntry.bind(this));
   }
 
-  _newEntry() {
+  _newEntry(e) {
     e.preventDefault();
 
     // Get data from form
@@ -137,14 +147,46 @@ class App {
     let entry;
 
     // If entry movie, create movie object
-
     if (type === "movie") {
       const movieTitle = inputMovieTitle.value;
       const movieDirector = inputMovieDirector.value;
+
+      entry = new Movie(movieTitle, movieDirector, personalRating);
     }
+
+    // if entry music, create music object
     if (type === "music") {
       const musicArtist = inputMusicArtist.value;
       const musicAlbum = inputMusicAlbum.value;
+
+      entry = new Music(musicArtist, musicAlbum, personalRating);
     }
+
+    this.#ratings.push(entry);
+
+    this._renderEntry(entry);
+  }
+
+  _renderEntry(entry) {
+    if (entry.type === "movie") {
+      let html = `
+      <tr class="table__header movie__header">
+        <td class="movie__title column__1">${entry.movieTitle}</td>
+        <td class="movie__director column__2">${entry.movieDirector}</td>
+      `;
+    }
+    if (entry.type === "music") {
+      let html = `
+      <tr class="table__header movie__header">
+        <td class="music__artist column__1">${entry.musicAlbum}</td>
+        <td class="music__album column__2">${entry.musicArtist}</td>
+      `;
+    }
+    html += `
+      <td class="${entry.type}__your_ratings column__3">${entry.personalRating}</td>
+    </tr>
+    `;
+
+    entryForm.insertAdjacentHTML("beforeend", html);
   }
 }

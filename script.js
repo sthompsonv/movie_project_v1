@@ -17,8 +17,13 @@ const inputPersonalRating = document.querySelector(
   ".form__input--personal_ratings"
 );
 
+const formBtn = document.querySelector(".form__btn");
+
 const movieContainer = document.querySelector(".movie__container");
 const musicContainer = document.querySelector(".music__container");
+
+const movieTable = document.querySelector(".movie__table");
+const musicTable = document.querySelector(".music__table");
 
 /////////////////////////////////////
 // Trying some counts
@@ -102,7 +107,7 @@ class Rating {
   date = new Date();
 
   constructor(pRating) {
-    this.pRating = pRating;
+    this.personalRating = pRating;
   }
 }
 
@@ -111,8 +116,8 @@ class Movie extends Rating {
 
   constructor(title, director, pRating) {
     super(pRating);
-    this.title = title;
-    this.director = director;
+    this.movieTitle = title;
+    this.movieDirector = director;
   }
 }
 
@@ -121,21 +126,24 @@ class Music extends Rating {
 
   constructor(artist, album, pRating) {
     super(pRating);
-    this.artist = artist;
-    this.album = album;
+    this.musicArtist = artist;
+    this.musicAlbum = album;
   }
 }
+
+// const movie1 = new Movie("The Godfather", "Jeff", 4.57);
+// console.log(movie1);
 
 class App {
   #ratings = [];
 
   constructor() {
     // Get data from local storage
-    // Not made yet
-    // this._getLocalStorage();
-    6;
+    this._getLocalStorage();
+
     // Get data from form
     entryForm.addEventListener("submit", this._newEntry.bind(this));
+    formBtn.addEventListener("click", this._newEntry.bind(this));
   }
 
   _newEntry(e) {
@@ -165,28 +173,48 @@ class App {
     this.#ratings.push(entry);
 
     this._renderEntry(entry);
+
+    this._setLocalStorage();
   }
 
   _renderEntry(entry) {
+    console.log(entry);
     if (entry.type === "movie") {
       let html = `
       <tr class="table__header movie__header">
         <td class="movie__title column__1">${entry.movieTitle}</td>
         <td class="movie__director column__2">${entry.movieDirector}</td>
+        <td class="${entry.type}__your_ratings column__3">${entry.personalRating}</td>
+        </tr>
       `;
+      movieTable.insertAdjacentHTML("beforeend", html);
     }
     if (entry.type === "music") {
       let html = `
       <tr class="table__header movie__header">
         <td class="music__artist column__1">${entry.musicAlbum}</td>
         <td class="music__album column__2">${entry.musicArtist}</td>
+        <td class="${entry.type}__your_ratings column__3">${entry.personalRating}</td>
+        </tr>
       `;
+      musicTable.insertAdjacentHTML("beforeend", html);
     }
-    html += `
-      <td class="${entry.type}__your_ratings column__3">${entry.personalRating}</td>
-    </tr>
-    `;
+  }
 
-    entryForm.insertAdjacentHTML("beforeend", html);
+  _setLocalStorage() {
+    localStorage.setItem("ratings", JSON.stringify(this.#ratings));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("ratings"));
+
+    if (!data) return;
+
+    this.#ratings = data;
+
+    this.#ratings.forEach((rating) => {
+      this._renderEntry(rating);
+    });
   }
 }
+const app = new App();

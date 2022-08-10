@@ -159,6 +159,9 @@ class App {
       const movieTitle = inputMovieTitle.value;
       const movieDirector = inputMovieDirector.value;
 
+      if (movieTitle == "" || movieDirector == "")
+        return alert("Enter a movie title and its director");
+
       entry = new Movie(movieTitle, movieDirector, personalRating);
     }
 
@@ -166,6 +169,9 @@ class App {
     if (type === "music") {
       const musicArtist = inputMusicArtist.value;
       const musicAlbum = inputMusicAlbum.value;
+
+      if (musicArtist == "" || musicAlbum == "")
+        return alert("Enter a movie title and its director");
 
       entry = new Music(musicArtist, musicAlbum, personalRating);
     }
